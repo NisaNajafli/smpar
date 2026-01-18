@@ -1,0 +1,431 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --main-green: #056a28;
+  --light-green: #27944d45;
+  --br: 32px;
+  --br-2: 26px;
+}
+* {
+  font-family: "Montserrat", sans-serif !important;
+}
+.container {
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: auto;
+}
+ul,
+li {
+  list-style: none !important;
+}
+a {
+  text-decoration: none;
+  color: #000000
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    background-color: #fff
+}
+header.scrolled{
+        box-shadow: 10px -6px 15px black;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  gap: 20px;
+}
+.logo{
+    width: 80px;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.menu__items {
+  display: flex;
+  align-items: center;
+  border: 1px solid #33333374;
+  border-radius: var(--br);
+  padding: 0 10px;
+  height: 60px;
+}
+.menu__items li a{
+    padding: 12px 15px;
+    border-radius: var(--br-2);
+    transition: all .9s ease;
+    font-weight: 500;
+    font-size: 17px;
+}
+.menu__items li a:hover{
+    background-color: var(--light-green);
+    color: var(--main-green)
+}
+.social__icons{
+    display: flex;
+    border: 1px solid #33333374;
+    border-radius: var(--br);
+    padding: 0 10px;
+    height: 50px;
+    align-items:center
+} 
+.social__icons a:first-child{
+    position: inherit;
+     border-top-right-radius: 0;
+    border-bottom-right-radius:0 ;
+     border-top-left-radius: var(--br-2);
+    border-bottom-left-radius:var(--br-2) ;
+}
+.social__icons a:last-child{
+ border-top-left-radius: 0;
+    border-bottom-left-radius:0 ;
+      border-top-right-radius:  var(--br-2);
+    border-bottom-right-radius: var(--br-2) ;
+}
+.social__icons a{
+    padding: 9px;
+    transition: all .9s ease;
+    position: relative;
+}
+.social__icons a::after{
+    position: absolute;
+    content: "";
+    height:20px;
+    top: 50%;
+    transform: translate(0,50%);
+    width: 1px;
+    top: 0;
+    background-color: #33333374;
+    left:0
+}
+.social__icons a:hover{
+    background-color: var(--light-green);
+    color: var(--main-green)
+}
+.social__icons a:hover svg path{
+    fill: var(--main-green)
+}
+.social__icons svg{
+    width: 20px;
+    height: 20px;
+}
+.social__icons svg path{
+    fill: #000000
+}
+.main__button{
+    padding: 18px 20px;
+    border-radius: var(--br);
+    border: 1px solid var(--main-green);
+    font-weight: 600;
+    color: #fff;
+    background: var(--main-green);
+    transition: all .5s ease;
+}
+.main__button:hover{
+    background-color: var(--light-green);
+    color: var(--main-green);
+    border-color: var(--light-green)
+}
+.hero-slider {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-slide {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 72%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 70%;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 38px !important;
+  font-weight: 500;
+  line-height: 1;
+  transition: opacity 0.2s ease-in-out;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    max-width: 500px;
+    margin-bottom: 20px;
+    line-height: 21px;
+}
+
+.hero-link {
+  font-size: 14px;
+  color: #fff;
+  padding-bottom: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-link svg {
+  transition: transform 0.3s ease-in-out;
+}
+.hero-link:hover svg {
+  transform: translateX(3px);
+}
+
+.hero-actions {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.hero-actions-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-action-card {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  width: 410px;
+  padding: 20px 30px 30px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  gap: 50px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.hero-action-card:hover {
+  background: hsla(0, 0%, 100%, 0.4);
+  backdrop-filter: blur(20px);
+}
+
+.hero-action-text {
+  flex: 1;
+  font-size: 22px;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero-action-text svg {
+  transition: transform 0.3s ease-in-out;
+}
+.hero-action-text:hover svg {
+  transform: translateX(3px);
+}
+
+.slider-buttons {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+}
+
+.slider-buttons__item:not(:first-child) {
+  margin-left: 1.4375rem;
+}
+
+.slider-buttons__button {
+  --size: 8.75rem;
+}
+
+.slider-buttons__button {
+  position: relative;
+  z-index: 0;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  background: none;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+  overflow: hidden;
+}
+#hero-slide1 {
+  background: url("https://static.tildacdn.com/tild3866-3537-4838-a566-643062656234/__2025-04-07__161607.png") center top/cover no-repeat;
+}
+#hero-slide2 {
+  background: url("https://static.tildacdn.com/stor3463-6333-4435-b465-333836633434/a3f56934e5d3970812f4acbb2ee850f3.jpg") center/cover no-repeat;
+}
+
+.slider-buttons__button:hover {
+  border-color: var(--main-green);
+}
+
+.slider-buttons__button:hover::before {
+  transform: none;
+}
+
+.slider-buttons__button:hover .slider-buttons__hover {
+  animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
+}
+
+.slider-buttons__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+  background-color: var(--main-green);
+}
+
+.slider-buttons__span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+}
+
+.slider-buttons__hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-buttons__svg {
+  --size: 1.75rem;
+}
+
+.slider-buttons__svg {
+  width: 40px;
+  height: 40px;
+  transform: rotate(90deg);
+}
+
+.slider-buttons__svg path {
+  stroke-width: 1px;
+  transition: 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.slider-buttons__svg.right {
+  transform: rotate(-90deg);
+}
+
+@keyframes MoveUpInitial {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -105%, 0);
+  }
+}
+
+@keyframes MoveUpEnd {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* .testimonials__section .swiper{
+  padding: 10px;
+} */
+/* footer bottom */
+
+@media (max-width: 1200px) {
+  .hero-action-card {
+    width: 325px;
+    gap: 30px;
+  }
+  .hero-content h1{
+    font-size: 70px;
+  }
+  .hero-content{
+    max-width: 80%;
+  }
+
+
+  .slider-buttons__button{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 55px;
+      }
+      .hero-content{
+        top: -80px;
+      }
+      .hero-actions{
+        bottom:150px
+      }
+      .slider-buttons {
+      bottom:20px
+      }
+}
+
+@media (max-width: 768px) {
+  
+   .hero-content h1 {
+    font-size: 30px;
+        margin-bottom: 15px;
+  }
+      .hero-content {
+        top: -145px;
+    }
+        .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content p {
+    font-size: 16px;
+    max-width: 500px;
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+  .hero-actions-grid {
+    flex-direction: column;
+  }
+      .hero-action-card {
+        width: 100%;
+        gap: 10px;
+    }
+    .slider-buttons__button {
+        width: 50px;
+        height: 50px;
+        background-color: var(--main-green);
+        border-color: var(--main-green)
+    }
+    .hero-actions {
+        bottom: 97px;
+    }
+    .hero-action-text {
+      font-size: 17px;
+    }
+}
