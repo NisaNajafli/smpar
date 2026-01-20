@@ -106,3 +106,20 @@ prevBtn.addEventListener("click", () => {
 
 // Init
 showStep(currentStep);
+document.getElementById("year").textContent = new Date().getFullYear();
+ document.addEventListener("DOMContentLoaded", () => {
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const header = item.querySelector(".faq-header");
+
+          header.addEventListener("click", () => {
+            if (item.classList.contains("active")) {
+              item.classList.remove("active");
+            } else {
+              faqItems.forEach((i) => i.classList.remove("active"));
+              item.classList.add("active");
+            }
+          });
+        });
+      });
