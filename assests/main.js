@@ -1,11 +1,11 @@
-const header = document.querySelector('header');
+const header = document.querySelector("header");
 
-window.addEventListener('scroll', function () {
-    if (window.scrollY > 200) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 200) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 });
 new Swiper(".hero-swiper", {
   loop: true,
@@ -15,46 +15,46 @@ new Swiper(".hero-swiper", {
   //   delay: 5000,
   //   disableOnInteraction: false,
   // },
-navigation: {
-            nextEl: "[data-slider-button='2']",
-            prevEl: "[data-slider-button='1']"
-        }
+  navigation: {
+    nextEl: "[data-slider-button='2']",
+    prevEl: "[data-slider-button='1']",
+  },
 });
 new Swiper(".saunas-slider", {
   slidesPerView: 3,
   spaceBetween: 24,
   loop: true,
-//   autoplay: {
-//     delay: 5000,
-//     disableOnInteraction: false,
-//   },
+  //   autoplay: {
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-    0: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1100: { slidesPerView: 3 }
-  }
+    0: { slidesPerView: 1.1 },
+    600: { slidesPerView: 2 },
+    1100: { slidesPerView: 3 },
+  },
 });
 new Swiper(".chans-slider", {
   slidesPerView: 3,
   spaceBetween: 24,
   loop: true,
   //   autoplay: {
-//     delay: 5000,
-//     disableOnInteraction: false,
-//   },
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
   navigation: {
     nextEl: ".chans-section .swiper-button-next",
     prevEl: ".chans-section .swiper-button-prev",
   },
   breakpoints: {
     0: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1100: { slidesPerView: 3 }
-  }
+    600: { slidesPerView: 2 },
+    1100: { slidesPerView: 3 },
+  },
 });
 let currentStep = 0;
 const steps = document.querySelectorAll(".quiz-step");
@@ -91,7 +91,7 @@ nextBtn.addEventListener("click", () => {
   if (currentStep < steps.length - 2) {
     currentStep++;
     showStep(currentStep);
-  } 
+  }
   // If last form step → show success screen
   else if (currentStep === steps.length - 2) {
     currentStep++;
@@ -107,19 +107,77 @@ prevBtn.addEventListener("click", () => {
 // Init
 showStep(currentStep);
 document.getElementById("year").textContent = new Date().getFullYear();
- document.addEventListener("DOMContentLoaded", () => {
-        const faqItems = document.querySelectorAll(".faq-item");
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
 
-        faqItems.forEach((item) => {
-          const header = item.querySelector(".faq-header");
+  faqItems.forEach((item) => {
+    const header = item.querySelector(".faq-header");
 
-          header.addEventListener("click", () => {
-            if (item.classList.contains("active")) {
-              item.classList.remove("active");
-            } else {
-              faqItems.forEach((i) => i.classList.remove("active"));
-              item.classList.add("active");
-            }
-          });
-        });
-      });
+    header.addEventListener("click", () => {
+      if (item.classList.contains("active")) {
+        item.classList.remove("active");
+      } else {
+        faqItems.forEach((i) => i.classList.remove("active"));
+        item.classList.add("active");
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.getElementById("open_menu");
+  const closeBtn = document.getElementById("close_menu");
+  const menu = document.querySelector(".mobile__menu");
+  const overlay = document.getElementById("menu_overlay");
+  const menuLinks = document.querySelectorAll(".mobile__menu a");
+
+  function openMenu() {
+    menu.classList.add("is-open");
+    overlay.classList.add("is-active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("is-open");
+    overlay.classList.remove("is-active");
+    document.body.style.overflow = "";
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+});
+
+
+const openBtns = document.querySelectorAll('[data-modal-open]');
+const modal = document.querySelector('[data-modal]');
+const overlay = document.querySelector('[data-modal-overlay]');
+const closeBtn = document.querySelector('[data-modal-close]');
+
+function openModal(e) {
+  e.preventDefault();
+  modal.classList.add('is-active');
+  overlay.classList.add('is-active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('is-active');
+  overlay.classList.remove('is-active');
+  document.body.style.overflow = '';
+}
+
+openBtns.forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+
+overlay.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
