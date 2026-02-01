@@ -1319,7 +1319,7 @@ section {
 
 .projects .owl-nav .owl-prev {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 29% !important;
   transform: translateY(-50%);
   width: 72px;
@@ -1335,7 +1335,7 @@ section {
 
 .projects .owl-nav .owl-next {
   position: absolute;
-  top: 40%;
+  top: 50%;
   right: 29% !important;
   transform: translateY(-50%);
   width: 72px;
@@ -1370,25 +1370,7 @@ section {
   transition: 0.3s;
 }
 
-@media (max-width: 1200px) {
-  .projects .owl-nav .owl-next {
-    right: 10% !important;
-  }
 
-  .projects .owl-nav .owl-prev {
-    left: 10% !important;
-  }
-}
-
-@media (max-width:768px) {
-  .projects .owl-nav .owl-prev {
-    left: 1% !important;
-  }
-
-  .projects .owl-nav .owl-next {
-    right: 1% !important;
-  }
-}
 .main-page__section-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2215,6 +2197,13 @@ footer {
     width: 100px;
     height: 100px;
   }
+  .projects .owl-nav .owl-next {
+    right: 10% !important;
+  }
+
+  .projects .owl-nav .owl-prev {
+    left: 10% !important;
+  }
 }
 @media (max-width: 900px) {
   .quiz-wrap-premium {
@@ -2304,6 +2293,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .projects .owl-nav .owl-prev {
+    left: 1% !important;
+  }
+
+  .projects .owl-nav .owl-next {
+    right: 1% !important;
+  }
+  section {
+    padding: 40px 0;
+}
   .achievements-card:nth-child(5) {
     grid-column: span 6;
   }
